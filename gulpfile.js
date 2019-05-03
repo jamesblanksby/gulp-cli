@@ -23,7 +23,7 @@ let watch = {
 
 /* error */
 let error = (file, line, column, message) => {
-	log.error(`[${line}:${column}] ${file} : ${message}`);
+	log.error(`[${line}:${column}] ${file} →  ${message}`);
 };
 
 /* task : scss */
