@@ -28,7 +28,7 @@ let error = (file, line, column, message) => {
 
 /* task : scss */
 gulp.task('scss', gulp.parallel((done) => {
-	gulp.src(watch.scss, { base: '.' })
+	gulp.src(watch.scss, { base: '.', })
 		.pipe(map.init())
 		.pipe(sass({ 
 			outputStyle: 'compressed'
@@ -38,7 +38,7 @@ gulp.task('scss', gulp.parallel((done) => {
 			done();
 		}))
 		.pipe(prefix({
-			cascade: false
+			cascade: false,
 		}))
 		.pipe(map.write('.'))
 		.pipe(rename(function(path) {
@@ -56,14 +56,14 @@ gulp.task('scss', gulp.parallel((done) => {
 gulp.task('watch', gulp.parallel((done) => {
 	reload.listen({ 'quiet': true });
 
-	gulp.watch(watch.scss).on('change', gulp.parallel(['scss']));
-	gulp.watch(['*.php', '**/*.php']).on('change', reload.changed);
+	gulp.watch(watch.scss).on('change', gulp.parallel(['scss',]));
+	gulp.watch(['*.php', '**/*.php',]).on('change', reload.changed);
     
 	done();
 }));
 
 /* task : default */
-gulp.task('default', gulp.parallel(['watch', 'scss'], (done) => {
+gulp.task('default', gulp.parallel(['watch', 'scss',], (done) => {
 	log.notice('Listening for changes...');
     
 	done();
