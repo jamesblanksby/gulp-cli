@@ -8,5 +8,6 @@
         "gulp-sourcemaps": "^2.6.5",
         "log": "^6.0.0",
         "log-node": "^7.0.0"
-    }
+    },
+    "browsers": ["last 2 versions"]
 }

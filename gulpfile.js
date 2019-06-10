@@ -38,7 +38,6 @@ gulp.task('scss', gulp.parallel((done) => {
 			done();
 		}))
 		.pipe(prefix({
-			browsers: ['last 2 versions'],
 			cascade: false
 		}))
 		.pipe(map.write('.'))
