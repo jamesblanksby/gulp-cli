@@ -54,7 +54,7 @@ gulp.task('scss', gulp.parallel((done) => {
 
 /* task : watch */
 gulp.task('watch', gulp.parallel((done) => {
-	reload.listen({ 'quiet': true });
+	reload.listen({ 'quiet': true, });
 
 	gulp.watch(watch.scss).on('change', gulp.parallel(['scss',]));
 	gulp.watch(['*.php', '**/*.php',]).on('change', reload.changed);
