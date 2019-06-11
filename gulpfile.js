@@ -18,7 +18,7 @@ require('log-node')();
 
 /* watch */
 let watch = {
-	scss: ['./src/scss/**/*.scss',]
+	scss: ['./src/scss/**/*.scss',],
 };
 
 /* error */
@@ -31,7 +31,7 @@ gulp.task('scss', gulp.parallel((done) => {
 	gulp.src(watch.scss, { base: '.', })
 		.pipe(map.init())
 		.pipe(sass({ 
-			outputStyle: 'compressed'
+			outputStyle: 'compressed',
 		}).on('error', (err) => {
 			error(err.relativePath, err.line, err.column, err.messageOriginal);
 
