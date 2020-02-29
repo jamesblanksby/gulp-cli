@@ -18,7 +18,7 @@ require('log-node')();
 
 /* watch */
 let watch = {
-	scss: ['./src/scss/**/*.scss',],
+	scss: ['./**/src/scss/**/*.scss',],
 };
 
 /* error */
