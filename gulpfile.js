@@ -18,6 +18,7 @@ require('log-node')();
 
 /* watch */
 let watch = {
+	html: ['**/*.html', '**/*.php',],
 	scss: ['./**/src/scss/**/*.scss',],
 };
 
@@ -56,8 +57,8 @@ gulp.task('scss', gulp.parallel((done) => {
 gulp.task('watch', gulp.parallel((done) => {
 	reload.listen({ 'quiet': true, });
 
+	gulp.watch(watch.html).on('change', reload.changed);
 	gulp.watch(watch.scss).on('change', gulp.parallel(['scss',]));
-	gulp.watch(['**/*.php',]).on('change', reload.changed);
     
 	done();
 }));
