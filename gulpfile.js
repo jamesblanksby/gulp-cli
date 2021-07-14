@@ -8,9 +8,11 @@ let gulp = require('gulp');
 /* gulp */
 let sass   = require('gulp-sass');
 let rename = require('gulp-rename');
-let reload = require('gulp-livereload');
 let prefix = require('gulp-autoprefixer');
 let map    = require('gulp-sourcemaps');
+
+/* sync */
+let sync = require('browser-sync').create();
 
 /* logging */
 let log = require('log'); 
@@ -48,16 +50,16 @@ gulp.task('scss', gulp.parallel((done) => {
 		.pipe(gulp.dest(function(file) {
 			return file.base;
 		}))
-		.pipe(reload());
+		.pipe(sync.stream());
         
 	done();
 }));
 
 /* task : watch */
 gulp.task('watch', gulp.parallel((done) => {
-	reload.listen({ 'quiet': true, });
+	sync.init({ logLevel: 'silent', notify: false, });
 
-	gulp.watch(watch.html).on('change', reload.changed);
+	gulp.watch(watch.html).on('change', sync.reload);
 	gulp.watch(watch.scss).on('change', gulp.parallel(['scss',]));
     
 	done();
