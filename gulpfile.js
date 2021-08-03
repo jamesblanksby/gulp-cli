@@ -6,7 +6,7 @@
 let gulp = require('gulp');
 
 /* gulp */
-let sass   = require('gulp-sass');
+let sass   = require('gulp-dart-sass');
 let rename = require('gulp-rename');
 let prefix = require('gulp-autoprefixer');
 let map    = require('gulp-sourcemaps');
