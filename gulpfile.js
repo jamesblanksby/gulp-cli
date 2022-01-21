@@ -7,6 +7,7 @@ let gulp = require('gulp');
 
 /* gulp */
 let sass   = require('gulp-dart-sass');
+let glob   = require('gulp-sass-glob');
 let rename = require('gulp-rename');
 let prefix = require('gulp-autoprefixer');
 let map    = require('gulp-sourcemaps');
@@ -33,6 +34,7 @@ let error = (file, line, column, message) => {
 gulp.task('scss', gulp.parallel((done) => {
 	gulp.src(watch.scss, { base: '.', })
 		.pipe(map.init())
+		.pipe(glob())
 		.pipe(sass({ 
 			outputStyle: 'compressed',
 		}).on('error', (err) => {
